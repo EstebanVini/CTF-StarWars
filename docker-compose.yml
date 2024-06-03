@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  client:
+    depends_on:
+      - api
+    build: ./client
+    ports:
+      - 3000:3000
+    restart: always
+
+  api:
+    depends_on:
+      - db
+    build: ./server
+    ports:
+      - 3001:3001
+    environment:
+      DB_URL: mongodb://db/FLAG14:HELLO_THERE_GENERAL_KENOBI
+    env_file:
+      - ./server/smtp_config.list
+    command: ["sh", "docker-entrypoint.sh"]
+    restart: always
+
+  db:
+    image: mongo:6.0
+    ports:
+      - 27017:27017
+    volumes:
+      - rest-api:/data/db
+    restart: always
+
+volumes:
+  rest-api:

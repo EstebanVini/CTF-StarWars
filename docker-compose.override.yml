@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  client:
+    networks:
+      - internal
+
+  api:
+    networks:
+      - internal
+
+  db:
+    networks:
+      - internal
+
+  rebel-server:
+    build:
+      context: ./rebel-server
+      dockerfile: Dockerfile.rebel-server
+    container_name: rebel-server
+    ports:
+      - 8081:8080
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge

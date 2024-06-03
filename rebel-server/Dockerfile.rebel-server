@@ -1,0 +1,4 @@
+FROM python:3.9-slim
+COPY ./rebel_server.py /var/www/server.py
+WORKDIR /var/www
+CMD ["python", "server.py"]

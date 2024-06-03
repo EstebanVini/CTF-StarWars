@@ -1,0 +1,12 @@
+FLAG11:FOR_THE_RESISTANCE_AND_THE_REPUBLIC
+
+Endpoints útiles:
+
+/api/logs
+/api/adminAuth
+/api/auth
+/api/users/:id
+/api/system/key
+/api/users
+/api/users/otp
+/api/users/verify
